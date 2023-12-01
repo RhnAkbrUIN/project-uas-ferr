@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Website FERR</title>
+
+    @stack('prepend-style')
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link href="/style/main.css" rel="stylesheet" />
+    <style>
+    html {
+    overflow-x: hidden;
+    }
+
+    body.dark {
+        --light: #0c0c1e;
+        --grey: #060714;
+        --dark: #fbfbfb;
+    }
+
+    body {
+        background: var(--grey);
+        overflow-x: hidden;
+    }
+    </style>
+    @stack('addon-style')
+  </head>
+
+  <body>
+    @include('includes.sidebar-admin')
+
+    <section id="content">
+        @include('includes.navbar')
+        
+        @yield('content')
+    
+        @yield('js')
+    </section>
+
+
+    @stack('prepend-script')
+    <script src="/js/dashboard.js"></script>
+    @stack('addon-script')
+  </body>
+</html>

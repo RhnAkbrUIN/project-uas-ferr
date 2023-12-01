@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\AkunPenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login', 301);
 
-Auth::routes();
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard/admin', [HomeController::class, 'admin'])->name('dashboard-admin');
+    Route::get('/dashboard/dosen', [HomeController::class, 'dosen'])->name('dashboard-dosen');
+    Route::get('/dashboard/mahasiswa', [HomeController::class, 'mahasiswa'])->name('dashboard-mahasiswa');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+
+
+Route::get('/dashboard/matakuliah', [MatakuliahController::class, 'index'])->name('matakuliah');
+Route::get('/dashboard/laporan', [LaporanController::class, 'index'])->name('laporan');
+Route::get('/dashboard/akun-pengguna', [AkunPenggunaController::class, 'index'])->name('akun-pengguna');
+
+Auth::routes();
