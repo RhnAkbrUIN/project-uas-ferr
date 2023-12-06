@@ -16,25 +16,51 @@ class UserSeeder extends Seeder
     {
         $user = [
             [
-            'code' => strtoupper(Str::random(10)),
-            'name' => 'dosen',
-            'email' => 'dosen@example.com',
-            'password' => bcrypt('123'),
-            'roles' => 'dosen',
+                'nip' => '20110001001',
+                'email' => 'safira@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'dosen',
             ],
             [
-            'code' => strtoupper(Str::random(10)),
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => bcrypt('123'),
-            'roles' => 'admin',
+                'nip' => '20110001002',
+                'email' => 'sabrina@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'dosen',
             ],
             [
-            'code' => strtoupper(Str::random(10)),
-            'name' => 'mahasiswa',
-            'email' => 'mahasiswa@example.com',
-            'password' => bcrypt('123'),
-            'roles' => 'mahasiswa',
+                'nip' => '20110001003',
+                'email' => 'aelissa@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'dosen',
+            ],
+            [
+                'email' => 'admin@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'admin',
+            ],
+            [
+                'nim' => '11210900001',
+                'email' => 'raihan@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'mahasiswa',
+            ],
+            [
+                'nim' => '11210900002',
+                'email' => 'rio@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'mahasiswa',
+            ],
+            [
+                'nim' => '11210900003',
+                'email' => 'fikri@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'mahasiswa',
+            ],
+            [
+                'nim' => '11210900004',
+                'email' => 'evan@example.com',
+                'password' => bcrypt('123'),
+                'roles' => 'mahasiswa',
             ],
         ];
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -22,17 +23,17 @@ class MahasiswaController extends Controller
                         <div class="btn-group">
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle mr-1 mb-1" 
-                                    type="button" id="action' .  $item->id . '"
+                                    type="button" id="action' .  $item->nim . '"
                                         data-toggle="dropdown" 
                                         aria-haspopup="true"
                                         aria-expanded="false">
                                         Aksi
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('mahasiswa.edit', $item->id) . '">
+                                <div class="dropdown-menu" aria-labelledby="action' .  $item->nim . '">
+                                    <a class="dropdown-item" href="' . route('mahasiswa.edit', $item->nim) . '">
                                         Sunting
                                     </a>
-                                    <form action="' . route('mahasiswa.destroy', $item->id) . '" method="POST">
+                                    <form action="' . route('mahasiswa.destroy', $item->nim) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Hapus
@@ -54,7 +55,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.mahasiswa.create');
     }
 
     /**
@@ -78,7 +79,7 @@ class MahasiswaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**

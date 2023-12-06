@@ -19,6 +19,9 @@ class AkunPenggunaController extends Controller
         if (request()->ajax()) {
             $query = User::query();
 
+            // Filter data pengguna dengan role admin atau dosen
+            // $query->whereIn('users.roles', ['admin']);
+
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
                     return '

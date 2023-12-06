@@ -58,7 +58,7 @@
                     searchable: false,
                     width: '15%'
                 },
-            ]
+            ],
         });
     });
 </script>

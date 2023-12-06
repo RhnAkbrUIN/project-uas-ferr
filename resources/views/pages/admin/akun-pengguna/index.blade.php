@@ -20,8 +20,6 @@
 						<table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
 							<thead>
 								<tr>
-									<th>Kode</th>
-									<th>Nama</th>
 									<th>Email</th>
 									<th>Roles</th>
 									<th>Aksi</th>
@@ -49,8 +47,6 @@
                 url: '{!! url()->current() !!}',
             },
             columns: [
-                { data:'code', name:'code' },
-                { data:'name', name:'name' },
                 { data:'email', name:'email' },
                 { data:'roles', name:'roles' },
                 { 

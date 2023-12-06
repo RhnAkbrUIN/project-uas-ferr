@@ -13,9 +13,10 @@ class MahasiswaSeeder extends Seeder
      */
     public function run(): void
     {
+        
         $mahasiswa = [
             [
-                'nim' => '11210900'. mt_rand(000,999),
+                'nim' => '11210900001',
                 'name_mhs' => 'Muhammad Raihan Akbar',
                 'jk' => 'Laki-laki',
                 'kelas' => 'C',
@@ -23,7 +24,7 @@ class MahasiswaSeeder extends Seeder
                 'angkatan' => '2021',
             ],
             [
-                'nim' => '11210900'. mt_rand(000,999),
+                'nim' => '11210900002',
                 'name_mhs' => 'Rio Tegar Syahputra',
                 'jk' => 'Laki-laki',
                 'kelas' => 'C',
@@ -31,7 +32,7 @@ class MahasiswaSeeder extends Seeder
                 'angkatan' => '2021',
             ],
             [
-                'nim' => '11210900'. mt_rand(000,999),
+                'nim' => '11210900003',
                 'name_mhs' => 'Muhammad Fikri Fahreza',
                 'jk' => 'Laki-laki',
                 'kelas' => 'C',
@@ -39,7 +40,7 @@ class MahasiswaSeeder extends Seeder
                 'angkatan' => '2021',
             ],
             [
-                'nim' => '11210900'. mt_rand(000,999),
+                'nim' => '11210900004',
                 'name_mhs' => 'Evan Dick Briantoro',
                 'jk' => 'Laki-laki',
                 'kelas' => 'C',

@@ -31,12 +31,6 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" name="name" class="form-control" required value="{{ $item->name }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
                                         <label>Email</label>
                                         <input type="email" name="email" class="form-control" required value="{{ $item->email }}">
                                     </div>

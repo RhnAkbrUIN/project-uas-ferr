@@ -14,26 +14,26 @@ class MatkulController extends Controller
      */
     public function index()
     {
-                if (request()->ajax()) {
+            if (request()->ajax()) {
             $query = Matakuliah::query();
 
             return Datatables::of($query)
-                ->addColumn('action', function ($item) {
+                ->addColumn('action', function ($data) {
                     return '
                         <div class="btn-group">
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle mr-1 mb-1" 
-                                    type="button" id="action' .  $item->id . '"
+                                    type="button" id="action' .  $data->code_matkul . '"
                                         data-toggle="dropdown" 
                                         aria-haspopup="true"
                                         aria-expanded="false">
                                         Aksi
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('akun-pengguna.edit', $item->id) . '">
+                                <div class="dropdown-menu" aria-labelledby="action' .  $data->code_matkul . '">
+                                    <a class="dropdown-item" href="' . route('matakuliah.edit', $data->code_matkul) . '">
                                         Sunting
                                     </a>
-                                    <form action="' . route('akun-pengguna.destroy', $item->id) . '" method="POST">
+                                    <form action="' . route('matakuliah.destroy', $data->code_matkul) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Hapus
@@ -65,7 +65,9 @@ class MatkulController extends Controller
     {
         $data = $request->all();
 
-        $data['code_matkul'] = 'TI00'. mt_rand(00000,999999);
+        $randomNumber = str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
+
+        $data['code_matkul'] = 'TI00' . $randomNumber;
 
         Matakuliah::create($data);
 
