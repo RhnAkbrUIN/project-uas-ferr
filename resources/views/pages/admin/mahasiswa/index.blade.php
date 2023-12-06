@@ -5,7 +5,7 @@
 <main>
 	<div class="head-title">
 		<div class="left">
-			<h1>Dashboard Admin - Mata Kuliah</h1>
+			<h1>Dashboard Admin - Mahasiswa</h1>
 		</div>
 	</div>
 
@@ -13,16 +13,19 @@
 		<div class="col-md-12 mt-2">
 			<div class="card">
 				<div class="card-body mt-2">
-					<a href="{{ route('matakuliah.create') }}" class="btn btn-primary mb-3">
-						+ Tambah Mata Kuliah Baru
+					<a href="{{ route('mahasiswa.create') }}" class="btn btn-primary mb-3">
+						+ Tambah Mahasiwa Baru
 					</a>
 					<div class="table-responsive mt-2">
 						<table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
 							<thead>
 								<tr>
-									<th>Kode</th>
-									<th>Nama Mata Kuliah</th>
-									<th>SKS</th>
+									<th>NIM</th>
+									<th>Nama</th>
+									<th>Jenis Kelamin</th>
+									<th>Kelas</th>
+									<th>Semester</th>
+									<th>Angkatan</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -48,9 +51,12 @@
                 url: '{!! url()->current() !!}',
             },
             columns: [
-                { data:'code_matkul', name:'code_matkul' },
-                { data:'matkul', name:'matkul' },
-                { data:'sks', name:'sks' },
+                { data:'nim', name:'nim' },
+                { data:'name_mhs', name:'name_mhs' },
+                { data:'jk', name:'jk' },
+                { data:'kelas', name:'kelas' },
+                { data:'semester', name:'semester' },
+                { data:'angkatan', name:'angkatan' },
                 { 
                     data:'action', 
                     name:'action',

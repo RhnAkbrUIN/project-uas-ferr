@@ -11,8 +11,14 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li class="{{ (request()->is('dashboard/matakuliah*')) ? 'active' : '' }}">
-				<a href="{{ route('matakuliah') }}">
+			<li class="{{ (request()->is('mahasiswa*')) ? 'active' : '' }}">
+				<a href="{{ route('mahasiswa.index') }}">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Mahasiswa</span>
+				</a>
+			</li>
+			<li class="{{ (request()->is('matakuliah*')) ? 'active' : '' }}">
+				<a href="{{ route('matakuliah.index') }}">
 					<i class='bx bxs-book'></i>
 					<span class="text">Mata Kuliah</span>
 				</a>
@@ -23,8 +29,8 @@
 					<span class="text">Laporan</span>
 				</a>
 			</li>
-			<li class="{{ (request()->is('dashboard/akun-pengguna*')) ? 'active' : '' }}">
-				<a href="{{ route('akun-pengguna') }}">
+			<li class="{{ (request()->is('akun-pengguna*')) ? 'active' : '' }}">
+				<a href="{{ route('akun-pengguna.index') }}">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Akun Pengguna</span>
 				</a>

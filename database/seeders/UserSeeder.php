@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -15,22 +16,22 @@ class UserSeeder extends Seeder
     {
         $user = [
             [
+            'code' => strtoupper(Str::random(10)),
             'name' => 'dosen',
-            'nim' => 'DOSEN123',
             'email' => 'dosen@example.com',
             'password' => bcrypt('123'),
             'roles' => 'dosen',
             ],
             [
+            'code' => strtoupper(Str::random(10)),
             'name' => 'admin',
-            'nim' => 'ADMIN123',
             'email' => 'admin@example.com',
             'password' => bcrypt('123'),
             'roles' => 'admin',
             ],
             [
+            'code' => strtoupper(Str::random(10)),
             'name' => 'mahasiswa',
-            'nim' => 'MAHASISWA123',
             'email' => 'mahasiswa@example.com',
             'password' => bcrypt('123'),
             'roles' => 'mahasiswa',

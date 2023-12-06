@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Support\Str;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-
-class AkunPenggunaController extends Controller
+class MahasiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
         if (request()->ajax()) {
-            $query = User::query();
+            $query = Mahasiswa::query();
 
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
@@ -32,10 +29,10 @@ class AkunPenggunaController extends Controller
                                         Aksi
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('akun-pengguna.edit', $item->id) . '">
+                                    <a class="dropdown-item" href="' . route('mahasiswa.edit', $item->id) . '">
                                         Sunting
                                     </a>
-                                    <form action="' . route('akun-pengguna.destroy', $item->id) . '" method="POST">
+                                    <form action="' . route('mahasiswa.destroy', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Hapus
@@ -49,7 +46,7 @@ class AkunPenggunaController extends Controller
                 ->make();
         }
 
-        return view('pages.admin.akun-pengguna.index');
+        return view('pages.admin.mahasiswa.index');
     }
 
     /**
@@ -57,7 +54,7 @@ class AkunPenggunaController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.akun-pengguna.create');
+        //
     }
 
     /**
@@ -65,14 +62,7 @@ class AkunPenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-
-        $data['code'] = strtoupper(Str::random(10));
-        $data['password'] = bcrypt($request->password);
-
-        User::create($data);
-
-        return redirect()->route('akun-pengguna.index');
+        //
     }
 
     /**
@@ -88,11 +78,7 @@ class AkunPenggunaController extends Controller
      */
     public function edit(string $id)
     {
-        $item = User::findOrFail($id);
-
-        return view('pages.admin.akun-pengguna.edit', [
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -100,21 +86,7 @@ class AkunPenggunaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->all();
-
-        $item = User::findOrFail($id);
-
-        if($request->password){
-
-            $data['password'] = bcrypt($request->password);
-        }else{
-
-            unset($data['password']);
-        }
-
-        $item->update($data);
-
-        return redirect()->route('akun-pengguna.index');
+        //
     }
 
     /**

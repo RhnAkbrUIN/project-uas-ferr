@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AkunPenggunaController;
 
 /*
@@ -29,8 +30,9 @@ Route::middleware(['auth'])->group(function(){
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/dashboard/matakuliah', [MatakuliahController::class, 'index'])->name('matakuliah');
 Route::get('/dashboard/laporan', [LaporanController::class, 'index'])->name('laporan');
-Route::get('/dashboard/akun-pengguna', [AkunPenggunaController::class, 'index'])->name('akun-pengguna');
+Route::resource('akun-pengguna', AkunPenggunaController::class);
+Route::resource('matakuliah', MatkulController::class);
+Route::resource('mahasiswa', MahasiswaController::class);
 
 Auth::routes();

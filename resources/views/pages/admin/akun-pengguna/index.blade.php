@@ -9,66 +9,59 @@
 		</div>
 	</div>
 
-    <div class="table-data">
-		<div class="order">
-			<div class="head">
-				<h3>Recent Orders</h3>
-				<i class='bx bx-search' ></i>
-				<i class='bx bx-filter' ></i>
+    <div class="row">
+		<div class="col-md-12 mt-2">
+			<div class="card">
+				<div class="card-body mt-2">
+					<a href="{{ route('akun-pengguna.create') }}" class="btn btn-primary mb-3">
+						+ Tambah User Baru
+					</a>
+					<div class="table-responsive mt-2">
+						<table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+							<thead>
+								<tr>
+									<th>Kode</th>
+									<th>Nama</th>
+									<th>Email</th>
+									<th>Roles</th>
+									<th>Aksi</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
 			</div>
-			<table>
-				<thead>
-					<tr>
-						<th>User</th>
-						<th>Date Order</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<img src="images/user.jpg">
-							<p>John Doe</p>
-						</td>
-						<td>01-10-2021</td>
-						<td><span class="status completed">Completed</span></td>
-					</tr>
-					<tr>
-						<td>
-							<img src="images/user.jpg">
-							<p>John Doe</p>
-						</td>
-						<td>01-10-2021</td>
-						<td><span class="status pending">Pending</span></td>
-					</tr>
-					<tr>
-						<td>
-							<img src="images/user.jpg">
-							<p>John Doe</p>
-						</td>
-						<td>01-10-2021</td>
-						<td><span class="status process">Process</span></td>
-					</tr>
-					<tr>
-						<td>
-							<img src="images/user.jpg">
-							<p>John Doe</p>
-						</td>
-						<td>01-10-2021</td>
-						<td><span class="status pending">Pending</span></td>
-					</tr>
-					<tr>
-						<td>
-							<img src="images/user.jpg">
-							<p>John Doe</p>
-						</td>
-						<td>01-10-2021</td>
-						<td><span class="status completed">Completed</span></td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 	</div>
 </main>
 <!-- MAIN -->
 @endsection
+
+@push('addon-script')
+    <script>
+    $(document).ready(function() {
+        var datatable = $('#crudTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [
+                { data:'code', name:'code' },
+                { data:'name', name:'name' },
+                { data:'email', name:'email' },
+                { data:'roles', name:'roles' },
+                { 
+                    data:'action', 
+                    name:'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '15%'
+                },
+            ]
+        });
+    });
+</script>
+@endpush

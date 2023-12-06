@@ -16,6 +16,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link href="/style/main.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css" rel="stylesheet">
     <style>
     html {
     overflow-x: hidden;
@@ -49,6 +50,8 @@
 
     @stack('prepend-script')
     <script src="/js/dashboard.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
     @stack('addon-script')
   </body>
 </html>

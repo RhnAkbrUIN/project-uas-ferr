@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Matakuliah;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
-
-class AkunPenggunaController extends Controller
+class MatkulController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        if (request()->ajax()) {
-            $query = User::query();
+                if (request()->ajax()) {
+            $query = Matakuliah::query();
 
             return Datatables::of($query)
                 ->addColumn('action', function ($item) {
@@ -49,7 +47,7 @@ class AkunPenggunaController extends Controller
                 ->make();
         }
 
-        return view('pages.admin.akun-pengguna.index');
+        return view('pages.admin.matakuliah.index');
     }
 
     /**
@@ -57,7 +55,7 @@ class AkunPenggunaController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.akun-pengguna.create');
+        return view('pages.admin.matakuliah.create');
     }
 
     /**
@@ -67,12 +65,11 @@ class AkunPenggunaController extends Controller
     {
         $data = $request->all();
 
-        $data['code'] = strtoupper(Str::random(10));
-        $data['password'] = bcrypt($request->password);
+        $data['code_matkul'] = 'TI00'. mt_rand(00000,999999);
 
-        User::create($data);
+        Matakuliah::create($data);
 
-        return redirect()->route('akun-pengguna.index');
+        return redirect()->route('matakuliah.index');
     }
 
     /**
@@ -88,11 +85,7 @@ class AkunPenggunaController extends Controller
      */
     public function edit(string $id)
     {
-        $item = User::findOrFail($id);
-
-        return view('pages.admin.akun-pengguna.edit', [
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -100,21 +93,7 @@ class AkunPenggunaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->all();
-
-        $item = User::findOrFail($id);
-
-        if($request->password){
-
-            $data['password'] = bcrypt($request->password);
-        }else{
-
-            unset($data['password']);
-        }
-
-        $item->update($data);
-
-        return redirect()->route('akun-pengguna.index');
+        //
     }
 
     /**
