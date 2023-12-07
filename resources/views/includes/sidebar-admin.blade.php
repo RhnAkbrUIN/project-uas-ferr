@@ -17,6 +17,12 @@
 					<span class="text">Mahasiswa</span>
 				</a>
 			</li>
+			<li class="{{ (request()->is('dosen*')) ? 'active' : '' }}">
+				<a href="{{ route('dosen.index') }}">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Dosen</span>
+				</a>
+			</li>
 			<li class="{{ (request()->is('matakuliah*')) ? 'active' : '' }}">
 				<a href="{{ route('matakuliah.index') }}">
 					<i class='bx bxs-book'></i>

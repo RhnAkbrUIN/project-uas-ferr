@@ -23,9 +23,7 @@
 									<th>NIP</th>
 									<th>Nama</th>
 									<th>Jenis Kelamin</th>
-									<th>Kelas</th>
-									<th>Semester</th>
-									<th>Angkatan</th>
+									<th>Mata Kuliah</th>
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -51,12 +49,10 @@
                 url: '{!! url()->current() !!}',
             },
             columns: [
-                { data:'nim', name:'nim' },
-                { data:'name_mhs', name:'name_mhs' },
+                { data:'nip', name:'nip' },
+                { data:'name_dosen', name:'name_dosen' },
                 { data:'jk', name:'jk' },
-                { data:'kelas', name:'kelas' },
-                { data:'semester', name:'semester' },
-                { data:'angkatan', name:'angkatan' },
+                { data:'code_matkul', name:'code_matkul' },
                 { 
                     data:'action', 
                     name:'action',

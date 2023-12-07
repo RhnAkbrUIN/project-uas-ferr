@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
 use App\Models\User;
+use App\Models\Mahasiswa;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -69,14 +70,14 @@ class AkunPenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
-        $data['code'] = strtoupper(Str::random(10));
-        $data['password'] = bcrypt($request->password);
+        // $data['code'] = strtoupper(Str::random(10));
+        // $data['password'] = bcrypt($request->password);
 
-        User::create($data);
+        // User::create($data);
 
-        return redirect()->route('akun-pengguna.index');
+        // return redirect()->route('akun-pengguna.index');
     }
 
     /**
@@ -134,6 +135,8 @@ class AkunPenggunaController extends Controller
 
         // Hapus data mahasiswa
         $mahasiswa->delete();
+
+        Alert::success('Data Berhasil dihapus!');
 
         return redirect()->route('akun-pengguna.index');
     }

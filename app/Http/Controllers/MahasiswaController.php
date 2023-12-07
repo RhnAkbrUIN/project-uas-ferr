@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MahasiswaController extends Controller
 {
@@ -91,7 +92,9 @@ class MahasiswaController extends Controller
             'roles' => 'mahasiswa',
         ]);
 
-        return redirect()->route('mahasiswa.index')->with('success', 'Data mahasiswa berhasil ditambahkan!');
+        Alert::success('Data Berhasil ditambahkan!');
+
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -105,17 +108,27 @@ class MahasiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $nim)
     {
+        $item = Mahasiswa::findOrFail($nim);
 
+        return view('pages.admin.mahasiswa.edit', [
+            'item' => $item
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $nim)
     {
-        //
+        $data = $request->all();
+
+        $item = Mahasiswa::findOrFail($nim);
+
+        $item->update($data);
+
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
@@ -131,6 +144,8 @@ class MahasiswaController extends Controller
         // Hapus data user
         $user = User::where('nim', '=', $mahasiswa->nim)->firstOrFail();
         $user->delete();
+
+        Alert::success('Data Berhasil dihapus!');
 
         return redirect()->route('mahasiswa.index');
     }

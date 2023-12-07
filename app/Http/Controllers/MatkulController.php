@@ -97,8 +97,11 @@ class MatkulController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $code_matkul)
     {
-        //
+        $item = Matakuliah::findOrFail($code_matkul);
+        $item->delete();
+
+        return redirect()->route('matakuliah.index');
     }
 }

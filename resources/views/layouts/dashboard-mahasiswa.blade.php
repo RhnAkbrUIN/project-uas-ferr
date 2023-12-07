@@ -47,7 +47,8 @@
         @yield('js')
     </section>
 
-
+    @include('sweetalert::alert')
+    
     @stack('prepend-script')
     <script src="/js/dashboard.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>

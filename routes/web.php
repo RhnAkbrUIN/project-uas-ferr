@@ -1,13 +1,14 @@
 <?php
 
+use App\Models\Dosen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AkunPenggunaController;
-use App\Models\Dosen;
 
 /*
 |--------------------------------------------------------------------------

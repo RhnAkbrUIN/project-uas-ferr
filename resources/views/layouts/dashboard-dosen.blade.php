@@ -47,6 +47,7 @@
         @yield('js')
     </section>
 
+    @include('sweetalert::alert')
 
     @stack('prepend-script')
     <script src="/js/dashboard.js"></script>

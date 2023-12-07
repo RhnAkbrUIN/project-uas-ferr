@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col text-right">
                                     <button class="btn btn-success px-5">
-                                        Save Now
+                                        Submit
                                     </button>
                                 </div>
                             </div>
