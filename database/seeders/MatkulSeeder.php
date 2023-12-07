@@ -15,27 +15,27 @@ class MatkulSeeder extends Seeder
     {
         $matkul = [
             [
-                'code_matkul' => 'TI00'. mt_rand(00000,999999),
+                'code_matkul' => '54001',
                 'matkul' => 'Dasar-dasar Pemrograman',
                 'sks' => 3,
             ],
             [
-                'code_matkul' => 'TI00'. mt_rand(00000,999999),
+                'code_matkul' => '54002',
                 'matkul' => 'Rekayasa Perangkat Lunak',
                 'sks' => 2,
             ],
             [
-                'code_matkul' => 'TI00'. mt_rand(00000,999999),
+                'code_matkul' => '54003',
                 'matkul' => 'Sistem Operasi Lanjutan',
                 'sks' => 4,
             ],
             [
-                'code_matkul' => 'TI00'. mt_rand(00000,999999),
+                'code_matkul' => '54004',
                 'matkul' => 'Kalkulus 1',
                 'sks' => 3,
             ],
             [
-                'code_matkul' => 'TI00'. mt_rand(00000,999999),
+                'code_matkul' => '54005',
                 'matkul' => 'Etika Profesi dan Teknologi Informasi',
                 'sks' => 1,
             ],

@@ -7,6 +7,7 @@ use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AkunPenggunaController;
+use App\Models\Dosen;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,6 @@ Route::get('/dashboard/laporan', [LaporanController::class, 'index'])->name('lap
 Route::resource('akun-pengguna', AkunPenggunaController::class);
 Route::resource('matakuliah', MatkulController::class);
 Route::resource('mahasiswa', MahasiswaController::class);
+Route::resource('dosen', DosenController::class);
 
 Auth::routes();

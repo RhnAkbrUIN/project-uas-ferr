@@ -17,5 +17,6 @@ class Dosen extends Model
         'nip',
         'name_dosen',
         'jk',
+        'code_matkul',
         ];
 }

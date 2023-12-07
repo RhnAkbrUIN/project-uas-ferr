@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
 class MahasiswaController extends Controller
@@ -63,7 +64,34 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nim' => 'required|unique:mahasiswa',
+            'name_mhs' => 'required',
+            'jk' => 'required',
+            'kelas' => 'required',
+            'semester' => 'required',
+            'angkatan' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+
+        Mahasiswa::create([
+            'nim' => $request->nim,
+            'name_mhs' => $request->name_mhs,
+            'jk' => $request->jk,
+            'kelas' => $request->kelas,
+            'semester' => $request->semester,
+            'angkatan' => $request->angkatan,
+        ]);
+
+        User::create([
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'roles' => 'mahasiswa',
+        ]);
+
+        return redirect()->route('mahasiswa.index')->with('success', 'Data mahasiswa berhasil ditambahkan!');
     }
 
     /**
@@ -93,8 +121,17 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $nim)
     {
-        //
+        $mahasiswa = Mahasiswa::where('nim', '=', $nim)->firstOrFail();
+
+        // Hapus data mahasiswa terlebih dahulu
+        $mahasiswa->delete();
+
+        // Hapus data user
+        $user = User::where('nim', '=', $mahasiswa->nim)->firstOrFail();
+        $user->delete();
+
+        return redirect()->route('mahasiswa.index');
     }
 }

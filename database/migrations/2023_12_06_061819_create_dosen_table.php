@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('nip')->primary();
             $table->string('name_dosen');
             $table->string('jk');
+            $table->string('code_matkul');
             $table->timestamps();
         });
     }

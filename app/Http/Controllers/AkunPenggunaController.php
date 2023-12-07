@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -125,6 +126,15 @@ class AkunPenggunaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $mahasiswa = Mahasiswa::where('nim', '=', $user->nim)->firstOrFail();
+
+        // Hapus data user
+        $user->delete();
+
+        // Hapus data mahasiswa
+        $mahasiswa->delete();
+
+        return redirect()->route('akun-pengguna.index');
     }
 }

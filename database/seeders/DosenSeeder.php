@@ -18,16 +18,19 @@ class DosenSeeder extends Seeder
                 'nip' => '20110001001',
                 'name_dosen' => 'Safira Anggia Marwan',
                 'jk' => 'Perempuan',
+                'code_matkul' => 'TI0005',
             ],
             [
                 'nip' => '20110001002',
                 'name_dosen' => 'Sabrina Erisaputri',
                 'jk' => 'Perempuan',
+                'code_matkul' => 'TI0001',
             ],
             [
                 'nip' => '20110001003',
                 'name_dosen' => 'Aelissa Maharani',
                 'jk' => 'Perempuan',
+                'code_matkul' => 'TI0002',
             ],
         ];
 

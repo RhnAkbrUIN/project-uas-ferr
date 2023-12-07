@@ -30,6 +30,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label>Kode Mata Kuliah</label>
+                                        <input type="text" name="code_matkul" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label>Nama Mata Kuliah</label>
                                         <input type="text" name="matkul" class="form-control" required>
                                     </div>
