@@ -5,7 +5,7 @@
 <main>
 	<div class="head-title">
 		<div class="left">
-			<h1>Dashboard Admin - Tambah Dosen Baru</h1>
+			<h1>Dashboard Admins - Tambah Dosen Baru</h1>
 		</div>
 	</div>
 
